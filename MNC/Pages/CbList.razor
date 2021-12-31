@@ -1,23 +1,24 @@
-﻿@page "/CbListEx"  
+﻿@page "/CbList"  
 @using BlazorComponents.Pages
-@inherits CbListExBase  
+@inherits CbListBase  
     <div class="col-12">  
         <h3><b>Notes Chords Music</b></h3>  
         <hr />  
         <div class="col-12 row">  
             <CheckBoxList Data="@ScaleList"  
-                          TextField="@((item)=>item.NoteId)"  
-                          ValueField="@((item)=>item.NoteId)"  
+                          TextField="@((item)=>item.NoteId)"
+                          ValueField="@((item)=>item.NoteId)"
                           SelectedValues="@SelectedIds" />  
         </div>  
+        
         <div class="col-12 row"> 
             <br />
             <br />
             <b>@OutPutValue</b>  
         </div>  
         <br />  
-        <div class="col-12 row">  
-            <span class="col-2"></span>  
-            <button class="form-control col-1 btn btn-primary" @onclick="ShowSelectedValues">Discover MNC</button>  
-        </div> 
+        <div>   
+            <button type="button" class="btn btn-primary btn-lg" 
+            @onclick="ShowSelectedValues">Select Notes</button>  
+        </div>     
     </div>

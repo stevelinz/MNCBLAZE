@@ -2,20 +2,27 @@
 
 namespace BlazorComponents.Pages
 {
-    public class CbListExBase : ComponentBase
-    {
-        public List<Scale> ScaleList { get; set; }
+    public class CbListBase : ComponentBase
+    {     
+        public List<Scale>? ScaleList { get; set; }
+        private const string Path = "notes.txt";
         protected List<string> SelectedIds = new List<string>();
-        public List<Scale> ObjectList { get; set; }
-        public string OutPutValue { get; set; }
+        public List<Scale>? ObjectList { get; set; }
+
+        public string? OutPutValue { get; set; }
         protected override void OnInitialized()
         {
-            ScaleList = GetScale();
+            ScaleList = GetScale();        
         }
-
         protected void ShowSelectedValues()
         {
-            OutPutValue = string.Join(" ", SelectedIds.ToArray());
+            OutPutValue = string.Join(" ", SelectedIds.ToArray()); 
+            File.Delete(@"notes.txt");   
+            string outputString;
+            outputString = OutPutValue.Trim();  
+            using StreamWriter noteId = new(Path, append: true);
+            noteId.WriteLine(outputString);
+            noteId.Close();
             StateHasChanged();
             ShowC();
             ShowE();
@@ -24,7 +31,7 @@ namespace BlazorComponents.Pages
             ShowA();
             ShowB();
             ShowD();
-            ShowSharp();
+            ShowSharp();    
         }
 
         protected void ShowC()
@@ -92,92 +99,71 @@ namespace BlazorComponents.Pages
             }
             StateHasChanged();
         }
-        private List<Scale> GetScale()
-        {
 
+       
+        public  List<Scale> GetScale()
+        {           
             var C = new Scale()
             {
-                NoteId = "C"
-                
+                NoteId = "C",              
             };
             var CS = new Scale()
             {
                 NoteId = "C#",
-                
             };
             var D = new Scale()
             {
                 NoteId = "D",
-                
             };
             var DS = new Scale()
             {
                 NoteId = "D#",
-                
             };
             var E = new Scale()
             {
                 NoteId = "E",
-                
             };
             var F = new Scale()
             {
                 NoteId = "F",
-                
             };
             var FS = new Scale()
             {
                 NoteId = "F#",
-
             };
             var G = new Scale()
             {
                 NoteId = "G",
-                
             };
             var GS = new Scale()
             {
                 NoteId = "G#",
-
             };
             var A = new Scale()
             {
                 NoteId = "A",
-
             };
             var AS = new Scale()
             {
                 NoteId = "A#",
-
             };
             var B = new Scale()
             {
                 NoteId = "B",
-
             };
-           
+
             var vSubList = new List<Scale>
-        {
+            {
                 C, CS, D, DS, E, F, FS, G, GS, A, AS, B
-                
             };
 
-            return vSubList;
+            return vSubList;       
         }
     }
-
+   
     public class Scale
     {
-        public string? NoteId
-        { get; set; }
-
-        public string NoteProperty
-        {
-            get
-            {
-                return NoteId;
-            }
-        }
-       
+        public string? NoteId { get; set; }
     }
 }
+

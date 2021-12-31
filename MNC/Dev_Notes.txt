@@ -1,0 +1,157 @@
+C CS D DS E F FS G GS A AS B
+0 1  2 3  4 5 6  7 8  9 10 11
+C CS D DS E F FS G GS A AS B
+1213 1415 161718 1920 2122 23
+
+  TextField="@((item)=>item.NoteId)" 
+
+     ValueField="@((item)=>item.NoteId)"  
+
+<CheckBoxList Data="@ScaleList"  
+                          TextField="@((item)=>item.NoteId)"
+                          ValueField="@((item)=>item.WorkNote)"
+                          
+                          SelectedValues="@SelectedIds" />  
+
+gives >>>  C    C#    D    D#    E    F    F#    G    G#    A    A#    B 
+           0    1     2    3     4    5    6     7    8     9    10    11
+
+          start with all cells set to -1
+
+          gives >>>  C    C#    D    D#    E    F    F#    G    G#    A    A#    B 
+                     0    1     2    3     4    5    6     7    8     9    10    11
+
+                     0          2          4    5          7          9    
+         ??? or start at 1
+          
+
+0 11 4 7
+
+  public int? WorkList { get; set; }
+        public List<Scale>? WorkListTwo { get; set; }
+
+         new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 
+                12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 };
+
+                 scaleBig[0] = 0;
+                 scaleBig[12] = 12;
+
+                
+        scaleBig[WorkNote] = WorkNote;
+        scaleBig[WorkNoteTwo] = WorkNoteTwo;
+
+
+             
+      public  int WorkNote = -1;
+      public  int WorkNoteTwo = -1;
+
+       var vSubListWN = new List<Scale>
+            {
+                C, CS, D, DS, E, F, FS, G, GS, A, AS, B
+
+
+        };
+            var vSubListWNTwo = new List<Scale>
+            {
+                C, CS, D, DS, E, F, FS, G, GS, A, AS, B
+
+            };
+
+
+                      foreach (var item in ScaleList)
+            {
+                OutPutValue = item.WorkNote.GetValueOrDefault();
+            }
+
+   public string NoteHolderTest()
+        {
+            string workNoteS = "";
+            int workNoteL = -1;
+            Scale scale = new Scale();
+           workNoteL  = (int)scale.WorkNote;
+            workNoteS = Convert.ToString(workNoteL);
+
+            return workNoteS;   
+         
+        }
+
+
+
+ using StreamWriter noteId = new("notes.txt", append: true);
+
+
+    private const string Path = "notes.txt";
+    using StreamWriter noteId = new(Path, append: false);
+
+    ======================================
+
+    string fileName = @"notes.txt";
+StreamWriter noteWrite = new("Logic.txt", append: true);
+
+using (StreamReader streamReader = File.OpenText(fileName))
+{
+    string note = streamReader.ReadToEnd();
+    if (note.Contains("C"))
+    {
+      
+        noteWrite.Write("found c ");
+    }
+        
+  
+
+    noteWrite.WriteLine(note);
+}
+
+
+noteWrite.Close();
+
+--------------------------------------------------
+
+ public class Logic
+    {
+        public string noteStart = System.IO.File.ReadAllText(@"notes.txt");
+        public void LogicCreate()
+        {
+            
+            if (noteStart.Contains("C"))
+            {
+                StreamWriter sw = new("notes.txt", append: true);
+                sw.Write("found c ");
+            }
+
+        }
+    }
+
+    //////////////////////////////////////////////////
+    
+
+      //temp = File.ReadAllText(@"notes.txt");
+
+            //foreach (var item in temp)
+            //{
+            //    if (item.Equals("C"))
+            //    {
+            //        noteId.WriteLine("found C ");
+            //    }
+            //}
+
+
+          //  string fileName = @"notes.txt";
+         //   StreamWriter noteWrite = new("notes.txt", append: true);
+
+         //   noteWrite.Close();
+
+            //using (StreamReader streamReader = File.OpenText(fileName))
+            //{
+            //    string note = streamReader.ReadToEnd();
+            //    if (note.Contains("C"))
+            //    {
+
+            //        noteWrite.Write("found c ");
+            //    }
+
+
+            //    noteWrite.WriteLine(note);
+          //  }
+
+         //   noteWrite.Close();
