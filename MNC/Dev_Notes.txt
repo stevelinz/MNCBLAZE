@@ -258,3 +258,42 @@ noteWrite.Close();
 
 
             noteId.Close();
+
+            *************************************************************************
+            
+            
+            int scaleLength = 0;
+            
+            string[] scaleNumbers = new string[scaleLength];
+
+             string notesAsNumbers = File.ReadAllText(@"scaleConvert.txt");
+
+            using StreamWriter sw = new("scaleConvert.txt", append: false);
+
+            while(notesAsNumbers.Length > 0)                             //(scaleLength < -1)
+            {
+                scaleNumbers[scaleLength] = notesAsNumbers;
+                sw.WriteLine(scaleNumbers[scaleLength]);
+                
+                scaleLength++;
+            }
+
+            sw.Close();
+
+
+            =======================================
+
+            
+            //StreamWriter sw = new("chordLogic.txt", append: false);
+            //sw.Write(" this is the chordlogic ");
+
+            //sw.Close();
+ 
+            //OutPutChordLogic = File.ReadAllText(@"chordLogic.txt");
+       
+
+        if (tempOriginal.Contains("C#")) temp = tempOriginal.Replace("C#", "R");
+            if (tempOriginal.Contains("D#")) temp = tempOriginal.Replace("D#", "T");
+            if (tempOriginal.Contains("F#")) temp = tempOriginal.Replace("F#", "Y");
+            if (tempOriginal.Contains("G#")) temp = tempOriginal.Replace("G#", "U");
+            if (tempOriginal.Contains("A#")) temp = tempOriginal.Replace("A#", "I");

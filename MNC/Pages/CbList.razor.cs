@@ -10,20 +10,24 @@ namespace BlazorComponents.Pages
         public List<Scale>? ObjectList { get; set; }
 
         public string? OutPutValue { get; set; }
+
+        public string? OutPutData { get; set; }
+ 
         protected override void OnInitialized()
         {
             ScaleList = GetScale();        
         }
-        protected void ShowSelectedValues()
+        public void ShowSelectedValues()
         {
-            OutPutValue = string.Join(" ", SelectedIds.ToArray()); 
+            OutPutValue = string.Join(" ", SelectedIds.ToArray());
+            
             File.Delete(@"notes.txt");   
             string outputString;
-            outputString = OutPutValue.Trim();  
+            outputString = OutPutValue.Trim();
             using StreamWriter noteId = new(Path, append: false);
             noteId.WriteLine(outputString);
             noteId.Close();
-            StateHasChanged();
+              
             ShowC();
             ShowE();
             ShowF();
@@ -31,7 +35,22 @@ namespace BlazorComponents.Pages
             ShowA();
             ShowB();
             ShowD();
-            ShowSharp();    
+            ShowSharp();
+            message();
+        }
+
+        public string? SendString()
+        {
+            return OutPutValue;
+        }
+
+        protected void message()
+        {
+ 
+            string sendMessage = "With that Scale check for the Chord Logic.";
+                OutPutData = sendMessage;   
+
+            StateHasChanged();        
         }
 
         protected void ShowC()
@@ -93,24 +112,18 @@ namespace BlazorComponents.Pages
         protected void ShowSharp()
         {
             if (OutPutValue == "C#" || OutPutValue == "D#" || OutPutValue == "F#"
-                || OutPutValue == "G#" || OutPutValue == "A#")
+                                    || OutPutValue == "G#" || OutPutValue == "A#")
             {
                 OutPutValue = "Sharps also have a flat name C#/Db, D#/Eb, F#/Gb, A#/Bb";
             }
             StateHasChanged();
         }
 
-        //public void temp()
-        //{
-
-        //}
-
-
         public List<Scale> GetScale()
         {           
             var C = new Scale()
             {
-                NoteId = "C",              
+                NoteId = "C ",
             };
             var CS = new Scale()
             {
@@ -118,7 +131,7 @@ namespace BlazorComponents.Pages
             };
             var D = new Scale()
             {
-                NoteId = "D",
+                NoteId = "D ",
             };
             var DS = new Scale()
             {
@@ -126,11 +139,11 @@ namespace BlazorComponents.Pages
             };
             var E = new Scale()
             {
-                NoteId = "E",
+                NoteId = "E ",
             };
             var F = new Scale()
             {
-                NoteId = "F",
+                NoteId = "F ",
             };
             var FS = new Scale()
             {
@@ -138,7 +151,7 @@ namespace BlazorComponents.Pages
             };
             var G = new Scale()
             {
-                NoteId = "G",
+                NoteId = "G ",
             };
             var GS = new Scale()
             {
@@ -146,7 +159,7 @@ namespace BlazorComponents.Pages
             };
             var A = new Scale()
             {
-                NoteId = "A",
+                NoteId = "A ",
             };
             var AS = new Scale()
             {
@@ -154,23 +167,27 @@ namespace BlazorComponents.Pages
             };
             var B = new Scale()
             {
-                NoteId = "B",
+                NoteId = "B ",
             };
+
+            
 
             var vSubList = new List<Scale>
             {
-                C, CS, D, DS, E, F, FS, G, GS, A, AS, B
-            };
+                C, CS, D, DS, E, F, FS, G, GS, A, AS, B              
+
+        };
 
             return vSubList;       
         }
     }
 
-   
-   
+    
     public class Scale
     {
         public string? NoteId { get; set; }
+  
     }
+  
 }
 
