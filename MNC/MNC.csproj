@@ -7,11 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="wwwroot\AboutMNC.html" />
+    <None Include="wwwroot\AW.jpg" />
   </ItemGroup>
 
   <ItemGroup>

@@ -20,7 +20,7 @@ namespace BlazorComponents.Pages
             File.Delete(@"notes.txt");   
             string outputString;
             outputString = OutPutValue.Trim();  
-            using StreamWriter noteId = new(Path, append: true);
+            using StreamWriter noteId = new(Path, append: false);
             noteId.WriteLine(outputString);
             noteId.Close();
             StateHasChanged();
@@ -100,8 +100,13 @@ namespace BlazorComponents.Pages
             StateHasChanged();
         }
 
-       
-        public  List<Scale> GetScale()
+        //public void temp()
+        //{
+
+        //}
+
+
+        public List<Scale> GetScale()
         {           
             var C = new Scale()
             {
@@ -160,6 +165,8 @@ namespace BlazorComponents.Pages
             return vSubList;       
         }
     }
+
+   
    
     public class Scale
     {

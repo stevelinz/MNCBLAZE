@@ -1,16 +1,23 @@
 ﻿@page "/Logic"
 @using BlazorComponents.Pages
 @inherits LogicBase
- <div> 
-       <div>   
+
+
+
+    <div>
+          <div>   
             <button type="button" class="btn btn-primary btn-lg" 
-            @onclick="test">Select Notes</button>
+            @onclick="test">Click here: then compare your scale with the associated chords.</button>
             
         </div> 
           <br />
           <br />
-        <div class="col-12 row"> 
+        <div class="col-12 row">
             <br />
+            <h4>Original Scale:  <b>@OutPutScale</b></h4>
+     
+            <br />
+             <h4>Chords of the Scale</h4>
             <br />
             <b>@OutPutLogic</b>  
         </div>  
