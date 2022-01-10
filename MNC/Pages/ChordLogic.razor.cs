@@ -19,11 +19,13 @@ namespace BlazorComponents.Pages
 
             OutPutChordLogic = chordFound;
 
-         // Major major = new Major();
-         //string sendNotes =    major.workingArray();
+            //////////////////////////////////////////////////////////////
+
+            //Major major = new Major();
+            // major.workingArray();
 
 
-         //   OutPutChordLogic = sendNotes;
+            //OutPutChordLogic = major.workingArray();
         }
 
         public  void noteToNumber()

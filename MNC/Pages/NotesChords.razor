@@ -1,0 +1,20 @@
+﻿@page "/NotesChords"
+@using BlazorComponents.Pages
+@inherits NotesChordsBase
+<div class="col-12 row">
+ 
+        </div>  
+        <br />  
+        <div>    
+            <button type="button" class="btn btn-primary btn-lg" 
+            @onclick="SortedScale">Click here and compare your scale with the associated chords.</button>
+
+            <br />
+            <br />
+            <br />
+            <h2>@OutPutScale</h2>
+            <br />
+            <br />
+            <b>@OutPutMajorChords</b>  
+            
+        </div> 

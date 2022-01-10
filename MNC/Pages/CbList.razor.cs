@@ -12,6 +12,11 @@ namespace BlazorComponents.Pages
         public string? OutPutValue { get; set; }
 
         public string? OutPutData { get; set; }
+
+        static class Again 
+        {
+           public static string useAgain = "Intialized";
+        }
  
         protected override void OnInitialized()
         {
@@ -20,7 +25,9 @@ namespace BlazorComponents.Pages
         public void ShowSelectedValues()
         {
             OutPutValue = string.Join(" ", SelectedIds.ToArray());
-            
+
+            Again.useAgain  = OutPutValue;
+
             File.Delete(@"notes.txt");   
             string outputString;
             outputString = OutPutValue.Trim();
@@ -37,11 +44,15 @@ namespace BlazorComponents.Pages
             ShowD();
             ShowSharp();
             message();
+           
         }
 
         public string? SendString()
         {
-            return OutPutValue;
+            //  OutPutValue = string.Join(" ", SelectedIds.ToArray());
+            //  string test = OutPutValue.Trim();
+            //   StateHasChanged();
+            return Again.useAgain;
         }
 
         protected void message()
@@ -50,7 +61,7 @@ namespace BlazorComponents.Pages
             string sendMessage = "With that Scale check for the Chord Logic.";
                 OutPutData = sendMessage;   
 
-            StateHasChanged();        
+         //   StateHasChanged();        
         }
 
         protected void ShowC()
@@ -59,7 +70,7 @@ namespace BlazorComponents.Pages
             {
                 OutPutValue = "Good start you added a C to your scale";
             }
-            StateHasChanged();
+           // StateHasChanged();
         }
         protected void ShowE()
         {
@@ -67,7 +78,7 @@ namespace BlazorComponents.Pages
             {
                 OutPutValue = "E the key of Guitar now the rest: G A B D";
             }
-            StateHasChanged();
+          //  StateHasChanged();
         }
         protected void ShowG()
         {
@@ -75,7 +86,7 @@ namespace BlazorComponents.Pages
             {
                 OutPutValue = "G Major the key of Folk usually";
             }
-            StateHasChanged();
+         //   StateHasChanged();
         }
         protected void ShowF()
         {
@@ -83,7 +94,7 @@ namespace BlazorComponents.Pages
             {
                 OutPutValue = "F Major just seems darker";
             }
-            StateHasChanged();
+          //  StateHasChanged();
         }
         protected void ShowA()
         {
@@ -91,7 +102,7 @@ namespace BlazorComponents.Pages
             {
                 OutPutValue = "A Major the key of Ballads, and such.";
             }
-            StateHasChanged();
+          //  StateHasChanged();
         }
         protected void ShowB()
         {
@@ -99,7 +110,7 @@ namespace BlazorComponents.Pages
             {
                 OutPutValue = "B Major the key for you to decide";
             }
-            StateHasChanged();
+          //  StateHasChanged();
         }
         protected void ShowD()
         {
@@ -107,7 +118,7 @@ namespace BlazorComponents.Pages
             {
                 OutPutValue = "D Major the key of C&W, seems to me.";
             }
-            StateHasChanged();
+         //   StateHasChanged();
         }
         protected void ShowSharp()
         {
@@ -116,7 +127,7 @@ namespace BlazorComponents.Pages
             {
                 OutPutValue = "Sharps also have a flat name C#/Db, D#/Eb, F#/Gb, A#/Bb";
             }
-            StateHasChanged();
+         //   StateHasChanged();
         }
 
         public List<Scale> GetScale()

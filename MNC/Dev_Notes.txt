@@ -297,3 +297,127 @@ noteWrite.Close();
             if (tempOriginal.Contains("F#")) temp = tempOriginal.Replace("F#", "Y");
             if (tempOriginal.Contains("G#")) temp = tempOriginal.Replace("G#", "U");
             if (tempOriginal.Contains("A#")) temp = tempOriginal.Replace("A#", "I");
+
+            **********************************************************************
+
+
+                       scaleArray.Trim();  
+ 
+            // convert string to array 
+            string[] newArray = new string[] { "" };
+            newArray = scaleArray.Split(" ");
+
+            // sort array
+            Array.Sort(newArray);
+
+            // convert array to string  
+            StringBuilder builder = new StringBuilder();
+            foreach (string sendArray in newArray)
+            {
+                builder.Append(sendArray);
+                builder.Append(" ");
+            }
+            string result = builder.ToString();
+
+
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+
+                        // remove empty cells 
+            string[] clearArray = new string[] { };
+            int count = 0;
+            int newCount = 0;
+            while(count < 12)
+            {
+                if (!newArray[count].Equals(""))
+                {
+                    clearArray[newCount] = newArray[count];
+                    newCount++; 
+                }
+             count++;
+            }
+
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+
+                       //stringToArray.Length;
+            for (int j = 0; j < 12;)   
+            {
+                {
+                    for ( int k = 0;  k < 12; k++)
+                    {
+                        if (stringToArray[j].Equals(newArray[k]))
+                        {
+                            newArray[k] = stringToArray[j];
+                            j++;
+                           // continue;
+                        }
+                        else
+                        {
+                            newArray[k] = "X";
+                        }
+  
+                    }                  
+                }
+            }
+
+
+            ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp
+
+                       string[] newArray = { "A", "A#", "B" , "C", "C#", "D",
+                                    "D#", "E", "F", "F#", "G", "G#"};
+
+
+            //// convert array to string  
+            //StringBuilder builder = new StringBuilder();
+            //foreach (string sendArray in newArray)
+            //{
+            //    builder.Append(sendArray);
+            //    builder.Append(" ");
+            //}
+            //string result = builder.ToString();
+
+
+            if (stringToArray[0] == "A")    k = 0;
+            if (stringToArray[1] == "A#")   k = 1;
+            if (stringToArray[2] == "B")    k = 2;
+            if (stringToArray[3] == "C")    k = 3;
+            if (stringToArray[4] == "C#")   k = 4;
+            if (stringToArray[5] == "D")    k = 5;
+            if (stringToArray[6] == "D#")   k = 6;
+            if (stringToArray[7] == "E")    k = 7;
+            if (stringToArray[8] == "F")    k = 8;
+            if (stringToArray[9] == "F#")   k = 9;
+            if (stringToArray[10] == "G")   k =10;
+            if (stringToArray[11] == "G#")  k =11;
+
+                      {
+                    newChord = valueTonic + foundThird + foundFifth + " ";
+                    list.Add(newChord);
+                    buildArray = list.ToArray();
+                }
+
+                i++;
+            }
+            //// convert array to string  
+            StringBuilder builder = new StringBuilder();
+            foreach (string sendArray in buildArray)
+            {
+                builder.Append(sendArray);
+                builder.Append(" ");
+            }
+            result = builder.ToString();
+
+ 
+            foreach (var item in result)
+            {
+                result = result.Replace("X", " ");
+            }
+
+            OutPutNotesChords = result;
+
+            //  OutPutNotesChords = result;  newChord
+
+            // OutPutNotesChords =  newArray[0] + newArray[4] + newArray[7] + " ";
+
+        }
+    }
+}
