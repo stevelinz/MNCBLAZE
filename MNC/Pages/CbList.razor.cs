@@ -58,7 +58,7 @@ namespace BlazorComponents.Pages
         protected void message()
         {
  
-            string sendMessage = "With that Scale check for the Chord Logic.";
+            string sendMessage = "With that Scale, check for the Note and Chord relationship.";
                 OutPutData = sendMessage;   
 
          //   StateHasChanged();        
