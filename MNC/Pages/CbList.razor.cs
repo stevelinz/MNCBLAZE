@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using Microsoft.AspNetCore.Components;
 
 namespace BlazorComponents.Pages
 {
@@ -25,16 +28,19 @@ namespace BlazorComponents.Pages
         public void ShowSelectedValues()
         {
             OutPutValue = string.Join(" ", SelectedIds.ToArray());
-
+            if (OutPutValue.Equals("")) OutPutValue = "C C# D D# E F F# G G# A A# B";
             Again.useAgain  = OutPutValue;
 
-            File.Delete(@"notes.txt");   
             string outputString;
+ 
             outputString = OutPutValue.Trim();
             using StreamWriter noteId = new(Path, append: false);
             noteId.WriteLine(outputString);
             noteId.Close();
-              
+
+            ShowSharp();
+            message();
+            MustInput();
             ShowC();
             ShowE();
             ShowF();
@@ -42,83 +48,80 @@ namespace BlazorComponents.Pages
             ShowA();
             ShowB();
             ShowD();
-            ShowSharp();
-            message();
-           
+ 
+
+
         }
 
         public string? SendString()
         {
-            //  OutPutValue = string.Join(" ", SelectedIds.ToArray());
-            //  string test = OutPutValue.Trim();
-            //   StateHasChanged();
             return Again.useAgain;
         }
 
         protected void message()
         {
  
-            string sendMessage = "With that Scale, check for the Note and Chord relationship.";
+            string sendMessage = "With that Scale, use the NOTE <> CHORD relationship link.";
                 OutPutData = sendMessage;   
+    
+        }
 
-         //   StateHasChanged();        
+        protected void MustInput()
+        {
+            if (OutPutValue == "C C# D D# E F F# G G# A A# B")
+            {
+                OutPutValue = "These notes you can select.";
+            }
         }
 
         protected void ShowC()
         {
-            if (OutPutValue == "C")
+            if (OutPutValue == "C ")
             {
                 OutPutValue = "Good start you added a C to your scale";
             }
-           // StateHasChanged();
         }
         protected void ShowE()
         {
-            if (OutPutValue == "E")
+            if (OutPutValue == "E ")
             {
                 OutPutValue = "E the key of Guitar now the rest: G A B D";
             }
-          //  StateHasChanged();
         }
         protected void ShowG()
         {
-            if (OutPutValue == "G")
+            if (OutPutValue == "G ")
             {
                 OutPutValue = "G Major the key of Folk usually";
             }
-         //   StateHasChanged();
         }
         protected void ShowF()
         {
-            if (OutPutValue == "F")
+            if (OutPutValue == "F ")
             {
                 OutPutValue = "F Major just seems darker";
             }
-          //  StateHasChanged();
         }
         protected void ShowA()
         {
-            if (OutPutValue == "A")
+            if (OutPutValue == "A ")
             {
                 OutPutValue = "A Major the key of Ballads, and such.";
             }
-          //  StateHasChanged();
         }
         protected void ShowB()
         {
-            if (OutPutValue == "B")
+            if (OutPutValue == "B ")
             {
                 OutPutValue = "B Major the key for you to decide";
             }
-          //  StateHasChanged();
         }
         protected void ShowD()
         {
-            if (OutPutValue == "D")
+            if (OutPutValue == "D ")
             {
                 OutPutValue = "D Major the key of C&W, seems to me.";
             }
-         //   StateHasChanged();
         }
         protected void ShowSharp()
         {
@@ -127,7 +130,6 @@ namespace BlazorComponents.Pages
             {
                 OutPutValue = "Sharps also have a flat name C#/Db, D#/Eb, F#/Gb, A#/Bb";
             }
-         //   StateHasChanged();
         }
 
         public List<Scale> GetScale()

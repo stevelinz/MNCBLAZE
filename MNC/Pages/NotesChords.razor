@@ -9,10 +9,41 @@
             <button type="button" class="btn btn-primary btn-lg" 
             @onclick="SortedScale">Click here and compare your scale with the associated chords.</button>
             <br />
-            <i>The scale may be inverted and so the order of the chords,<br /> a change in the music!</i>
+            <br />
+        <span>   
+            <button type="button" class="btn btn-primary btn-sm" 
+            @onclick="ReverseMajor" aria-pressed="true">Reverse Major</button>  
+            <button type="button" class="btn btn-primary btn-sm" 
+            @onclick="Reverseminor" aria-pressed="true">Reverse minor</button>   
+            <button type="button" class="btn btn-primary btn-sm" 
+            @onclick="ReversePentatonic" aria-pressed="true">Reverse Pentatonic</button>
+            <button type="reset" class="btn btn-primary btn-sm" 
+            @onclick="SortedScale">Reset</button>
+        </span>
+        <br />
+            <i>The scale may be inverted, a change in the music!</i>
+            <br />
             <h3>@OutPutScale</h3>
             <br />
             <b>@OutPutMajorChords</b> 
             <br />
-            <b>@OutPutminorChords</b>           
+            <br />
+            <b>@OutPutMajorDom7thChords</b> 
+            <br />
+            <br />
+            <b>@OutPutMajor7thChords</b> 
+            <br />
+            <br />
+            <b>@OutPutminorChords</b>
+            <br />
+            <br />
+            <b>@OutPutminor7thChords</b>
+            <br />
+            <br />
+            <b>@OutPutminor7thFlat5Chords</b>           
+            <br />
+            <br />
+            <b>@OutPutminorPenta</b>            
+            <br />
+            
         </div> 
